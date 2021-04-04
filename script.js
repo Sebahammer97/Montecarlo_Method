@@ -96,15 +96,20 @@
 
       renderChart();
 
-      getById("integral_result").textContent = getIntegralResult();
-      getById("aprox_result").textContent = getAproxResult();
+      let integral_result = getIntegralResult();
+      getById("integral_result").textContent = integral_result;
+      let aprox_result = getAproxResult();
+      getById("aprox_result").textContent = aprox_result;
+      getById("error_results").textContent = Math.abs(
+        integral_result - aprox_result
+      );
     }
   };
 
   // Funcion que verifica los inputs
   function verifyInputs() {
     // Creacion de una expresion regular para verificar los inputs
-    const reg = /^\d+$/;
+    const reg = /^-?\d+$/;
 
     // Verificacion de los inputs
     try {
@@ -149,10 +154,11 @@
 
   // Funcion para obtener los puntos de la funcion
   function getFuncionPoints() {
-    let x = x_from;
+    let x = x_from,
+      step = 0.25;
     while (x <= x_to) {
       funcionPoints.push({ x: x, y: evaluate(x, funcion) });
-      x++;
+      x += step;
     }
   }
 
@@ -177,16 +183,23 @@
   function getRandomPoints() {
     let count = 0,
       x = 0,
-      y = 0;
+      y = 0,
+      y_function = 0;
 
     while (count < cant_points) {
       x = Math.random() * (x_to - x_from) + x_from;
       y = Math.random() * (y_to - y_from) + y_from;
 
-      if (y < evaluate(x, funcion)) {
-        insidePoints.push({ x: x, y: y });
+      y_function = evaluate(x, funcion);
+
+      if (y > 0) {
+        y < y_function
+          ? insidePoints.push({ x: x, y: y })
+          : outsidePoints.push({ x: x, y: y });
       } else {
-        outsidePoints.push({ x: x, y: y });
+        y > y_function
+          ? insidePoints.push({ x: x, y: y })
+          : outsidePoints.push({ x: x, y: y });
       }
 
       count++;
@@ -229,6 +242,7 @@
         fill: false,
         showLine: true,
         pointBackgroundColor: "purple",
+        radius: 0,
       });
     } else {
       alert("No hay puntos para la funcion.");
@@ -243,7 +257,8 @@
         fill: true,
         showLine: true,
         pointBackgroundColor: "blue",
-        pointStyle: "rect", // TODO: Ver por que no se hacen lineas rectas
+        tension: 0,
+        radius: 0,
       });
     } else {
       alert("No hay puntos para el area.");
@@ -306,3 +321,5 @@
 // Bibliografía
 // https://codepen.io/83338a/pen/QrvKYY
 // https://dirask.com/posts/JavaScript-how-to-use-Monte-Carlo-method-to-calculate-pi-constant-number-MDgJo1
+// https://demo.wiris.com/mathtype/en/
+// http://toreaurstad.blogspot.com/2017/08/integrals-in-math-with-javascript.html
