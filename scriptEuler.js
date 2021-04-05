@@ -1,7 +1,6 @@
 (function(document, window) {
 
-    // Variables Globales
-    var finalX = getById('xfinal');
+
 
     function getById(id) {
         return document.getElementById(id);
@@ -13,6 +12,7 @@
         var x = parseFloat(getById("xzero").value);
         var h = parseFloat(getById("h").value);
         var funcion = getById("mainEquation").value;
+        var finalX = getById('xfinal');
 
         var eulerArray = euler(funcion, finalX.value, x, y, h)
         var eulerMejArray = eulerMejorado(funcion, finalX.value, x, y, h)
@@ -53,18 +53,16 @@
         function r4(funcion, finalX, x, y, h) {
             var fX = finalX;
             console.log(finalX, x, x < fX)
-            var i = 0;
             var valores = [];
             valores.push({ x: x, y: y });
             while (x < fX) {
-                m1 = evaluar(y, x, funcion);
-                m2 = evaluar((y + m1 * h / 2), (x + h / 2), funcion);
-                m3 = evaluar((y + m2 * h / 2), (x + h / 2), funcion);
-                m4 = evaluar((y + m3 * h), (x + h), funcion);
-                m = ((m1 + 2 * m2 + 2 * m3 + m4) / 6);
-                y = y + m * h;
+                p1 = h * evaluar(y, x, funcion);
+                p2 = h * evaluar((y + p1 / 2), (x + h / 2), funcion);
+                p3 = h * evaluar((y + p2 / 2), (x + h / 2), funcion);
+                p4 = h * evaluar((y + p3), (x + h), funcion);
+                m = ((p1 + 2 * p2 + 2 * p3 + p4) / 6);
+                y = y + m;
                 x = x + h;
-                i++;
                 valores.push({ x: x, y: y });
             }
             return valores;

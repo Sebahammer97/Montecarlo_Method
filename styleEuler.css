@@ -19,14 +19,6 @@
     float: top;
 }
 
-.clear {
-    clear: both;
-}
-
-h1 {
-    text-align: center;
-}
-
 select,
 input {
     padding: 8px;
@@ -68,22 +60,6 @@ button {
     background-color: #61dafb;
     border-color: #61dafb;
     color: #fff;
-}
-
-.result {
-    margin-left: 25px;
-}
-
-table td,
-table th {
-    color: white;
-    padding: 5px;
-    border: 1px solid white;
-    border-collapse: collapse;
-}
-
-#final_valueX {
-    display: block;
 }
 
 body {
