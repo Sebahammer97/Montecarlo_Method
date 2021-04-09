@@ -1,8 +1,13 @@
+html {
+    height: 100%;
+}
+
 .container {
     width: 1360px;
     margin: 0 auto;
     display: grid;
-    align-items: center
+    align-items: center;
+    color: white;
 }
 
 .one {
@@ -64,6 +69,8 @@ button {
 
 body {
     background-color: #282c34;
+    position: relative;
+    height: 100vh;
 }
 
 input {
@@ -77,4 +84,8 @@ input {
     color: #3498db;
     outline: none;
     line-height: 1.5;
+}
+
+iframe {
+    height: calc(100vh - 250px);
 }
