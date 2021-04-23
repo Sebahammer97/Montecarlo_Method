@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styleEuler.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="one">
+
+            <div style="display:inline-block;margin-right:20px;margin-left:200px">
+                <label for="mainEquation">Y'</label>
+                <input id="mainEquation" class="form-control input" type="text" value="x*y/2+x" />
+            </div>
+            <div style="display:inline-block;margin-right:20px;">
+                <label for="yzero">Y(0)</label>
+                <input id="yzero" type="text" class="form-control" value="0" />
+            </div>
+            <div style="display:inline-block;margin-right:20px;">
+                <label>X(0)</label>
+                <input id="xzero" type="text" class="form-control" value="0" />
+            </div>
+            <div style="display:inline-block;margin-right:20px;">
+                <label>X(n)</label>
+                <input id="xfinal" type="text" class="form-control" value="2" />
+            </div>
+            <div style="display:inline-block;margin-right:20px;">
+                <label>h</label>
+                <input id="h" type="text" class="form-control" value="0.25" />
+            </div>
+
+            <button id="calculate" type="button" value="calculate">CALCULAR</button>
+
+        </div>
+
+        <div class="two">
+
+            <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 50px auto;"></div>
+        </div>
+    </div>
+    <script src="./canvasjs.min.js"></script>
+    <script type="text/javascript" src="scriptEuler.js"></script>
+</body>
+
+</html>

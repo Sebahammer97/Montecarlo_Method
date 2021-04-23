@@ -7,14 +7,21 @@
   color: white;
   font-size: calc(10px + 1vmin);
 }
+
+.title-container {
+  text-align: center;
+}
+
 .inputs {
   display: flex;
   flex-direction: row;
   padding: 1em;
 }
+
 .input-container {
   padding: 1em;
 }
+
 .graphic {
   border: 1px solid black;
   background-color: white;
@@ -22,7 +29,8 @@
   width: 900px !important;
   height: 900px !important;
 }
-#calculate {
+
+.button {
   position: relative;
   font-size: 16px;
   font-weight: 600;
@@ -47,9 +55,24 @@
   background-color: #61dafb;
   border-color: #61dafb;
   color: #fff;
+  text-decoration: none;
 }
-#calculate:hover {
+
+.button:hover {
   background-color: #fff;
   border-color: #fff;
   color: #61dafb;
+}
+
+input {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font: small-caption;
+  font-weight: bold;
+  font-size: 1.8;
+  width: 100px;
+  color: #3498db;
+  outline: none;
+  line-height: 1.5;
 }

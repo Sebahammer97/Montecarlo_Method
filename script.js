@@ -36,6 +36,7 @@
               scaleLabel: {
                 display: true,
                 labelString: "x",
+                fontSize: 50,
               },
             },
           ],
@@ -50,6 +51,7 @@
               scaleLabel: {
                 display: true,
                 labelString: "F(x)",
+                fontSize: 50,
               },
             },
           ],
@@ -96,13 +98,7 @@
 
       renderChart();
 
-      let integral_result = getIntegralResult();
-      getById("integral_result").textContent = integral_result;
-      let aprox_result = getAproxResult();
-      getById("aprox_result").textContent = aprox_result;
-      getById("error_results").textContent = Math.abs(
-        integral_result - aprox_result
-      );
+      getById("aprox_result").textContent = getAproxResult();
     }
   };
 
@@ -300,19 +296,13 @@
     }
   }
 
-  // Funcion para obtener el valor de la integral
-  function getIntegralResult() {
-    let total = 0,
-      step = 0.01;
-    for (let x = x_from; x < x_to; x += step) {
-      total += Math.pow(x + step / 2, 0.5) * step;
-    }
-    return total;
-  }
-
   // Funcion para obtener un valor aproximado de la integral
   function getAproxResult() {
-    return ((insidePoints.length + 1) / cant_points) * (x_to - x_from) * y_to;
+    return (
+      ((insidePoints.length + 1) / cant_points) *
+      (x_to - x_from) *
+      (Math.abs(y_to) - Math.abs(y_from))
+    );
   }
 
   initialize();
