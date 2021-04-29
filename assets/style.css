@@ -30,6 +30,11 @@
   height: 900px !important;
 }
 
+.graphic2 {
+  height: 370px;
+  width: 920px;
+}
+
 .button {
   position: relative;
   font-size: 16px;
@@ -75,4 +80,12 @@ input {
   color: #3498db;
   outline: none;
   line-height: 1.5;
+}
+
+.results {
+  padding: 2em;
+}
+
+.explanation {
+  max-width: 600px;
 }

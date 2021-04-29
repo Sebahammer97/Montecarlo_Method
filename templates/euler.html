@@ -1,47 +1,85 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../assets/style.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../assets/styleEuler.css">
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <div class="one">
-
-            <div style="display:inline-block;margin-right:20px;margin-left:200px">
-                <label for="mainEquation">Y'</label>
-                <input id="mainEquation" class="form-control input" type="text" value="x*y/2+x" />
-            </div>
-            <div style="display:inline-block;margin-right:20px;">
-                <label for="yzero">Y(0)</label>
-                <input id="yzero" type="text" class="form-control" value="0" />
-            </div>
-            <div style="display:inline-block;margin-right:20px;">
-                <label>X(0)</label>
-                <input id="xzero" type="text" class="form-control" value="0" />
-            </div>
-            <div style="display:inline-block;margin-right:20px;">
-                <label>X(n)</label>
-                <input id="xfinal" type="text" class="form-control" value="2" />
-            </div>
-            <div style="display:inline-block;margin-right:20px;">
-                <label>h</label>
-                <input id="h" type="text" class="form-control" value="0.25" />
-            </div>
-
-            <button id="calculate" type="button" value="calculate">CALCULAR</button>
-
+      <h1>Método de Euler/ Eurler mejorado / Runge Kutta</h1>
+      <div class="explanation">
+        <b>Método de Euler</b>: procedimiento de integración numérica para
+        resolver ecuaciones diferenciales ordinarias (EDO) a partir de un valor
+        inicial dado.
+      </div>
+      &nbsp;
+      <div class="explanation">
+        <b>Método de Euler mejorado</b>: consiste en tomar las fórmulas del
+        método de Euler para calcular la pendiente en un punto inicial y en un
+        punto final y luego promediarlas. De esta manera el resultado será mucho
+        más acertado a lo largo de todo el intervalo.
+      </div>
+      &nbsp;
+      <div class="explanation">
+        <b>Método de Runge Kutta</b>: es un conjunto de métodos iterativos
+        (implícitos y explícitos) para la aproximación de soluciones de
+        ecuaciones diferenciales ordinarias, concretamente, del problema de
+        valor inicial.
+      </div>
+      <h3>Conceptos importantes!!!</h3>
+      <div class="explanation">
+        <b>Y'</b> es la función que se va a evaluar.
+      </div>
+      <div class="explanation">
+        <b>Y(0)</b> indica dónde se empieza a calcular la aproximación de la
+        ecuación diferencial.
+      </div>
+      <div class="explanation">
+        <b>X(0)</b> indica dónde se empieza a calcular la aproximación de la
+        ecuación diferencial.
+      </div>
+      <div class="explanation">
+        <b>X(n)</b> es el último punto del eje X que se va a evaluar.
+      </div>
+      <div class="explanation">
+        <b>h</b> es la distancia o tamaño de los pasos.
+      </div>
+      <div class="inputs">
+        <div class="input-container">
+          <label for="mainEquation">Y' = </label>
+          <input
+            id="mainEquation"
+            class="form-control input"
+            type="text"
+            value="x*y/2+x"
+          />
+        </div>
+        <div class="input-container">
+          <label for="yzero">Y(0) = </label>
+          <input id="yzero" type="text" class="form-control" value="0" />
+        </div>
+        <div class="input-container">
+          <label>X(0) = </label>
+          <input id="xzero" type="text" class="form-control" value="0" />
+        </div>
+        <div class="input-container">
+          <label>X(n) = </label>
+          <input id="xfinal" type="text" class="form-control" value="2" />
+        </div>
+        <div class="input-container">
+          <label>h = </label>
+          <input id="h" type="text" class="form-control" value="0.25" />
         </div>
 
-        <div class="two">
+        <button id="calculate" class="button" type="button" value="calculate">
+          CALCULAR
+        </button>
+      </div>
 
-            <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 50px auto;"></div>
-        </div>
+      <div id="chartContainer" class="graphic2"></div>
     </div>
     <script src="../res/canvasjs.min.js"></script>
     <script type="text/javascript" src="../res/scriptEuler.js"></script>
-</body>
-
+  </body>
 </html>
