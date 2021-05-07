@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+    <script src="./lib/jquery.min.js"></script>
   </head>
 
-  <body>
+  <body style="margin: 1px;">
     <div class="container">
-      <table style="width: 100%">
+      <div style="width:100%;">
+      <table style="width: 100%" id="optionsTable">
         <tr>
           <td class="title-container">
             <h1>Método de Montecarlo</h1>
@@ -27,12 +29,39 @@
           </td>
         </tr>
       </table>
+      <div style="color:white;width: 100%;text-align: center;position: relative;padding-top: 5px;">
+      <a style="color:white;width: 100%;cursor:pointer;" id="mas_menos">Ver menos</a>
+    </div>
+    </div>
+    <script>
+        $( "#mas_menos" ).click(function() {
+          if($( "#mas_menos" ).text()==="Ver menos"){
+
+            $( "#optionsTable" ).css("display","none");
+            $( "#mas_menos" ).text("Ver más");
+            return;
+
+        }
+        if($( "#mas_menos" ).text()==="Ver más"){
+
+            $( "#optionsTable" ).css("display","");
+            $( "#mas_menos" ).text("Ver menos");
+            return;
+
+        }
+    
+            
+        });
+        
+        </script>
       <iframe
         src="./templates/montecarlo.html"
         name="miIframe"
-        style="height: calc(100vh - 150px); width: 100%"
+        style="height: calc(100vh - 15px); width: 100%"
         id="iFrame1"
       />
     </div>
+
   </body>
+
 </html>
